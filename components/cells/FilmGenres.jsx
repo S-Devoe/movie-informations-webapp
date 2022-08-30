@@ -8,13 +8,13 @@ const FilmGenres = ({ data, isMovie }) => {
     setGenre(data);
   }, [data]);
 
-  console.log(genre);
+  console.log(genre.length);
 
   return (
     <div className="flex-col w-full">
       <h3 className="text-[1.25rem] font-semibold ">Genres</h3>
       <div className="flex gap-4 items-center jusb mt-2 ">
-        {genre == true ? (
+        {genre.length >= 1 ? (
           genre.map((item, index) => (
             <button
               key={index}
