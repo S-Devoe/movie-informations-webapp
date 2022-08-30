@@ -37,8 +37,8 @@ const Collections = ({
 
     fetchTrending();
 
-    // eslint-disable-next-line 
-  }, []);
+     
+  }, [endpoint, endpointType, isTrending]);
 
   
 

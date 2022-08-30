@@ -18,7 +18,7 @@ const FilmCast = ({ credit }) => {
               key={index}
               className="px-[.45rem] py-[.25rem] border-2 border-app-pure-white rounded-lg"
             >
-              {item.length > 0 ? item.name : "N/A"}
+              { item.name  }
             </h3>
           ))}
         </div>
