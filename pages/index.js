@@ -8,9 +8,12 @@ export default function Home() {
     <div>
       <Head>
         <title>Movie App | TMDB API</title>
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        ></meta>
         <meta name="description" content="Movie app ctreated by Deevoe" />
         <link rel="icon" href="/favicon.ico" />
-      
       </Head>
 
       <main className="py-[1rem] px-[1.5rem] lg:py-[1.5rem] lg:max-w-[85rem] w-full">
