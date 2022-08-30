@@ -1,26 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+*,
+*::before,
+*::after,
 html,
 body {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+body {
+  background: #10141e;
+  color: #fff;
+  transition: 150s linear;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.searchbar {
+  width: 100%;
 }
 
-* {
-  box-sizing: border-box;
+button:disabled,
+button[disabled] {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+button:disabled:hover,
+button[disabled]:hover {
+  background: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.card-collection-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(8.75rem, 20rem));
+  justify-content: space-between;
+  grid-template-areas:
+    "area1 area2"
+    "area3 area4 "
+    "area5 area6";
+  gap: 1rem;
+}
+
+.card-0 {
+  grid-area: area1;
+}
+
+.card-1 {
+  grid-area: area2;
+}
+
+.card-2 {
+  grid-area: area3;
+}
+
+.card-3 {
+  grid-area: area4;
+}
+
+.card-4 {
+  grid-area: area5;
+}
+
+.card-5 {
+  grid-area: area6;
+}
+
+.search-card-collection-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10.75rem, 1fr));
+  gap: 1.5rem;
+}
+
+.genre-card-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10.75rem, 1fr));
+  gap: 1.5rem;
+}
+
+.genre-card-section a:nth-child(2n) {
+  background-color: #161D2F;
+}
+
+@media screen and (min-width: 479px) {
+  .card-collection-wrapper {
+    grid-template-columns: repeat(3, minmax(8.75rem, 30rem));
+    grid-template-areas:
+      "area1 area2 area3"
+      "area4 area4 area5"
+      "area6 area6 area6";
+    gap: 1rem !important;
   }
-  body {
-    color: white;
-    background: black;
+}
+
+@media screen and (min-width: 1000px) {
+  .card-collection-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(10.75rem, 1fr));
+    grid-template-areas:
+      "area1 area2 area3 area4"
+      "area5 area5 area6 area6";
+    gap: 1rem;
+  }
+
+  .search-card-collection-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(20.75rem, 1fr));
+  }
+}
+
+/* Custom horizontal scroll for trending section */
+.h-scroll::-webkit-scrollbar {
+  border-radius: 10px;
+  height: 8px;
+  width: 8px;
+}
+.h-scroll::-webkit-scrollbar-thumb:horizontal {
+  background: #5a698f; /* app-greyish-blue */
+  border-radius: 10px;
+}
+
+/* .icon-nav{
+  fill: #5A698F;
+}
+.icon-nav:hover{
+  fill: #FC4747;
+} */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* decided to go for the tailwind way instead of the above comment  */
+
+@layer components {
+  .icon-nav {
+    @apply fill-app-greyish-blue transition duration-150 ease-linear hover:fill-app-red md:h-6 md:w-6;
+  }
+
+  .active-link {
+    @apply fill-app-pure-white transition duration-150 ease-linear hover:fill-app-red md:h-6 md:w-6;
+  }
+
+  .disabled-link {
+    pointer-events: none;
+  }
+
+  .card-hover-animation {
+    @apply hover:animate-wiggle hover:even:animate-wiggleOpp motion-reduce:transition-none motion-reduce:hover:transform-none;
+  }
+}
+
+/* Loading Animation CSS  */
+
+.loader {
+  width: 10rem;
+  height: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+}
+
+.loader::before {
+  width: inherit;
+  height: 0.05rem;
+  background-color: hsla(0, 0%, 85%);
+}
+
+.loader::after {
+  box-sizing: border-box;
+  width: 50%;
+  height: inherit;
+  border: 0.1rem solid hsla(0, 0%, 85%);
+  border-radius: 50%;
+  left: 25%;
+}
+
+.loader span {
+  position: absolute;
+  width: 5%;
+  height: 10%;
+  background-color: white;
+  border-radius: 50%;
+  bottom: 0.2rem;
+  left: -5%;
+  animation: 2s linear infinite;
+  transform-origin: 50% -1.935rem;
+  animation-name: run, rotating;
+}
+
+.loader span:nth-child(2) {
+  animation-delay: 0.075s;
+}
+.loader span:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+@keyframes run {
+  0% {
+    left: -5%;
+  }
+  10%,
+  60% {
+    left: calc((100% - 5%) / 2);
+  }
+  70%,
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes rotating {
+  0%,
+  10% {
+    transform: rotate(0deg);
+  }
+  60%,
+  100% {
+    transform: rotate(-1turn);
   }
 }
