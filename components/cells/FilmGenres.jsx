@@ -3,14 +3,13 @@ import { useEffect, useState } from "react";
 
 const FilmGenres = ({ data, isMovie }) => {
   const [genre, setGenre] = useState([]);
+                  
 
   useEffect(() => {
     setGenre(data);
   }, [data]);
 
-  console.log(genre.length);
-
-  return (
+  return genre ? (
     <div className="flex-col w-full">
       <h3 className="text-[1.25rem] font-semibold ">Genres</h3>
       <div className="flex gap-4 items-center jusb mt-2 ">
@@ -32,10 +31,13 @@ const FilmGenres = ({ data, isMovie }) => {
             </button>
           ))
         ) : (
-          <p>N/A</p>
+          <p>Loading...</p>
+          // preloader should be above instead of the text
         )}
       </div>
     </div>
+  ) : (
+    "wtf"
   );
 };
 export default FilmGenres;

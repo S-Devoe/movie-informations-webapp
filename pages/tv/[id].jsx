@@ -38,8 +38,8 @@ const TvSlug = ({ data, credit }) => {
             <FilmInfo
               isMovie={false}
               language={
-                tvSeries.spoken_languages == true
-                  ? tvSeries.spoken_languages[0].name
+                tvSeries.spoken_languages
+                  ? tvSeries.spoken_languages[0].english_name
                   : "N/A"
               }
               firstAir={tvSeries.first_air_date}

@@ -12,7 +12,7 @@ import Head from "next/head";
 
 const MovieSlug = ({ data, credit }) => {
   const [movie, setMovie] = useState({});
-  console.log(data)
+  console.log(movie)
 
   useEffect(() => {
     setMovie(data);
@@ -25,7 +25,7 @@ const MovieSlug = ({ data, credit }) => {
       </Head>
       <section className="py-[1rem] px-[1.5rem] md:px-[3rem] lg:py-[1.5rem] lg:max-w-[85rem] w-full">
         <SearchBar placeholder="Search for Movies" searchPath="search/movie" />
-        {data ? (
+        {movie ? (
           <div className=" flex items-center flex-col gap-6 lg:flex-row lg:gap-4 lg:items-start ">
             <div className="lg:flex-1">
               <FilmImage src={movie.poster_path} title={movie.original_name} />
@@ -39,8 +39,8 @@ const MovieSlug = ({ data, credit }) => {
               <FilmInfo
                 isMovie={true}
                 language={
-                  movie.spoken_languages == true
-                    ? movie.spoken_languages[0].name
+                  movie.spoken_languages
+                    ? movie.spoken_languages[0].english_name
                     : "N/A"
                 }
                 length={movie.runtime ? movie.runtime : "N/A"}

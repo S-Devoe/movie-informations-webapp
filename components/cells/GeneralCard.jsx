@@ -6,7 +6,6 @@ import CategoryTvIcon from "../icons/CategoryTvIcon";
 
 const GeneralCard = ({ item, isMovie }) => {
   const router = useRouter();
-  
 
   const renderYear = (year) => {
     return year.substring(0, 4);
@@ -60,7 +59,6 @@ const GeneralCard = ({ item, isMovie }) => {
         >
           <div className="year">
             {item.release_date == "" ||
-            item.release_date == null ||
             item.first_air_date == false ||
             item.first_air_date == "" ? (
               <p>N/A</p>
