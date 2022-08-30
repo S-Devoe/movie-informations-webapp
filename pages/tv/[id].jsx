@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import FilmCast from "../../components/cells/FilmCast";
 import FilmGenres from "../../components/cells/FilmGenres";
-import FilmHeading from "../../components/cells/Filmheading";
+import FilmHeading from "../../components/cells/FilmHeading";
 import FilmImage from "../../components/cells/FilmImage";
 import FilmInfo from "../../components/cells/FilmInfo";
 import FilmRating from "../../components/cells/FilmRating";
