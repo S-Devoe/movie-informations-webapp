@@ -25,7 +25,7 @@ export default function Home() {
           >
             Movies
           </h2>
-          <Collections
+          {/* <Collections
             endpoint="trending"
             endpointType="movie"
             title="trending"
@@ -35,7 +35,7 @@ export default function Home() {
             isTrending={true}
             isMovie={true}
             limit="10"
-          />
+          /> */}
           <Collections
             endpoint="movie"
             endpointType="popular"
