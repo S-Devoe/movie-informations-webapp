@@ -19,7 +19,7 @@ const Collections = ({
   const [data, setData] = useState([]);
   const [limitData, setLimitData] = useState([]);
 
-  useEffect(() => {
+  // useEffect(() => {
     const fetchTrending = async () => {
       try {
         const response = await fetch(
@@ -37,8 +37,8 @@ const Collections = ({
 
     fetchTrending();
 
-     
-  });
+    // eslint-disable-next-line 
+  // }, []);
 
   
 
