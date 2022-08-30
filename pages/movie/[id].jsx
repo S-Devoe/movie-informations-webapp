@@ -32,8 +32,8 @@ const MovieSlug = ({ data, credit }) => {
             </div>
             <div className="w-full gap-6 flex flex-col lg:gap-4">
               <FilmHeading
-                title={movie.original_title}
-                tagline={movie.tagline}
+                title={movie.original_title || "N/A"}
+                tagline={movie.tagline || "N/A"}
               />
               <FilmRating ratingNum={(movie.vote_average / 2).toFixed(2)} />
               <FilmInfo
