@@ -12,7 +12,7 @@ const FilmGenres = ({ data, isMovie }) => {
   return genre ? (
     <div className="flex-col w-full">
       <h3 className="text-[1.25rem] font-semibold ">Genres</h3>
-      <div className="flex gap-4 items-center jusb mt-2 ">
+      <div className="flex gap-4 flex-wrap items-center  mt-2 ">
         {genre.length >= 1 ? (
           genre.map((item, index) => (
             <button
