@@ -27,7 +27,10 @@ Users should be able to:
 
 ### Screenshot
 
+#### Mobile View
 ![Mobile](https://i.postimg.cc/4460MXPL/mobile.png)
+
+#### Desktop View
 ![Desktop](https://i.postimg.cc/85t1BL7W/home.png)
 
 ### Links
