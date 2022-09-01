@@ -60,12 +60,17 @@ The big issue was encountered after production, my API calls were not using bein
 I solved this by:
 
 - first trying to figure out the cause of the problem.
+
      I opened the chrome console of the live web app and i found this -
+
         `Mixed Content: The page at '<URL>' was loaded over HTTPS, but requested an insecure resource '<URL>'. This request has been blocked; the content must be served over HTTPS.`
 
 - My next step was to figure out how i could solve this as it was my first time of seeing this type of erorr in my production.
+
     I opened a new tab on my browser and 'googled' :grin: the problem, i clicked on a StackOverFlow click and was redirected to a post where i found a comment that solved my problem.
-    I added this meta tag to head element in my index.js and my web app come to live fully.
+
+    I added this meta tag :point_down: to head element in my index.js and my web app come to live fully.
+
          `<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">`
 
 
